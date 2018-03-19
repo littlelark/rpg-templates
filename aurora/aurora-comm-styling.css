@@ -1,0 +1,116 @@
+.rora-letter-container {
+  --rora-bg-color: #fbfbfb;
+  --rora-border-color: #999755;
+  --rora-corner-radius: 15px;
+  --rora-base-font-size: 11px;
+  --rora-ls: calc(0.75 * var(--rora-base-font-size));
+}
+
+.rora-letter-container {
+  background-color: var(--rora-bg-color);
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  color: #000000;
+  display: grid;
+  grid-template-areas:
+    "tl-corner addressee tr-corner"
+    ". content ."
+    "bl-corner signature br-corner"
+  ;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: var(--rora-corner-radius) auto var(--rora-corner-radius);
+  line-height: normal;
+  margin: 20px auto;
+  max-width: 450px;
+  width: 80%;
+}
+
+.rora-letter-container *, .rora-letter-container *::before, .rora-letter-container *::after { box-sizing: border-box; }
+
+.rora-letter-container .rora-letter-corner {
+  background-color: var(--rora-bg-color);
+  overflow: hidden;
+  width: var(--rora-corner-radius);
+}
+
+.rora-letter-container .rora-letter-corner .rora-corner-curve {
+  border: 4px double var(--rora-border-color);
+  border-radius: 50%;
+  height: calc(2 * var(--rora-corner-radius));
+  width: calc(2 * var(--rora-corner-radius));
+}
+
+.rora-letter-container .rora-letter-corner#rora-top-left {
+  grid-area: tl-corner;
+  justify-self: end;
+  transform: translate(var(--rora-corner-radius), var(--rora-corner-radius));
+}
+.rora-letter-container .rora-letter-corner#rora-top-left .rora-corner-curve { transform: translate(calc(-1 * var(--rora-corner-radius)), calc(-1 * var(--rora-corner-radius))); }
+.rora-letter-container .rora-letter-corner#rora-top-right {
+  grid-area: tr-corner;
+  transform: translate(calc(-1 * var(--rora-corner-radius)), var(--rora-corner-radius));
+}
+.rora-letter-container .rora-letter-corner#rora-top-right .rora-corner-curve { transform: translate(0, calc(-1 * var(--rora-corner-radius))); }
+.rora-letter-container .rora-letter-corner#rora-bottom-left {
+  grid-area: bl-corner;
+  justify-self: end;
+  transform: translate(var(--rora-corner-radius), calc(-1 * var(--rora-corner-radius)));
+}
+.rora-letter-container .rora-letter-corner#rora-bottom-left .rora-corner-curve { transform: translate(calc(-1 * var(--rora-corner-radius)), 0); }
+.rora-letter-container .rora-letter-corner#rora-bottom-right {
+  grid-area: br-corner;
+  transform: translate(calc(-1 * var(--rora-corner-radius)), calc(-1 * var(--rora-corner-radius)));
+}
+
+.rora-letter-container .rora-addressee
+, .rora-letter-container .rora-signature {
+  background-color: var(--rora-bg-color);
+  border: none;
+  font-family: 'Playfair Display';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  justify-content: center;
+  justify-self: center;
+  letter-spacing: 0.1em;
+  overflow: visible;
+  padding: 0 1em 0 1.1em;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 100;
+}
+
+.rora-letter-container .rora-addressee { grid-area: addressee; }
+
+.rora-letter-container .rora-signature {
+  grid-area: signature;
+  margin-top: calc(-1 * var(--rora-corner-radius));
+}
+
+.rora-letter-container .rora-addressee .rora-salutation
+, .rora-letter-container .rora-signature .rora-close {
+  font-family: 'Lato';
+  font-size: var(--rora-base-font-size);
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+.rora-letter-container .rora-addressee .rora-salutation {
+  margin-top: 0.25em;
+  text-align: center;
+}
+.rora-letter-container .rora-signature .rora-close {
+  margin: -1em 0 0 -2em;
+  text-align: left;
+}
+
+.rora-letter-container .rora-letter-content {
+  font-family: 'Lato';
+  font-size: var(--rora-base-font-size);
+  font-weight: 300;
+  grid-area: content;
+  letter-spacing: 1px;
+  line-height: 150%;
+  padding: 8em 5em;
+  outline: 4px double var(--rora-border-color);
+  text-align: justify;
+}
