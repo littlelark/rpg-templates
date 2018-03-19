@@ -13,9 +13,9 @@
   color: #000000;
   display: grid;
   grid-template-areas:
-    "tl-corner addressee tr-corner"
-    ". content ."
-    "bl-corner signature br-corner"
+    "tl-corner  addressee   tr-corner"
+    ".          content     ."
+    "bl-corner  signature   br-corner"
   ;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: var(--rora-corner-radius) auto var(--rora-corner-radius);
